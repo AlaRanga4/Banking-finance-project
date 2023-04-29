@@ -40,6 +40,11 @@ pipeline {
             }
             }
         }
+    stage('Push Image to DockerHub') {
+      steps {
+        sh 'docker push aravindrevalli59/finance:latest'
+            }
+    }   
 
         }
         }
