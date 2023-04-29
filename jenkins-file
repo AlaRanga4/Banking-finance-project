@@ -15,7 +15,7 @@ pipeline {
               } 
               }
       
-      stage('Package the Application') {
+    stage('Package the Application') {
         steps {
           echo " Packaing the Application"
           sh 'mvn clean package'
@@ -26,6 +26,12 @@ pipeline {
       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/finance/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
             }
+            
+    stage('Docker Image Creation') {
+      steps {
+        sh 'docker build -t aravindrevalli59/finance:latest .'
+            }
+    }
  
 
         }
