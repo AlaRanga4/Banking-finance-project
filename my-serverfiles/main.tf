@@ -1,13 +1,13 @@
 resource "aws_instance" "test-server" {
   ami           = "ami-0b08bfc6ff7069aff" 
   instance_type = "t2.micro" 
-  key_name = "project1"
-  vpc_security_group_ids= ["sg-007858f4ae4d2db95"]
+  key_name = "project"
+  vpc_security_group_ids= ["sg-001ed457cb6d9e6b1"]
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    #private_key = file("./project1.pem")
-    private_key = file("project1.pem")
+    #private_key = file("./project.pem")
+    private_key = file("project.pem")
     timeout = "3m"
     agent = false
     host     = self.public_ip
