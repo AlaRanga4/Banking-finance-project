@@ -42,3 +42,8 @@ pipeline {
         { steps {
             sh "docker push dineshk1996/finance:latest "
         }}
+	
+	
+	
+	}
+}
