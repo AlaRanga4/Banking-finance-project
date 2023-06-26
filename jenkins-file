@@ -9,7 +9,7 @@ pipeline {
       stage('CheckOut') {
         steps {
           echo 'Checkout the source code from GitHub'
-          git branch: 'main', url: 'https://github.com/Dineshdevop1/Banking-finance-project.git'
+          git branch: 'main', url: 'https://github.com/AlaRanga4/Banking-finance-project.git'
               } 
               }
       
@@ -27,7 +27,7 @@ pipeline {
             
     stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t dineshk1996/finance:latest .'
+        sh 'docker build -t alaranga4/finance:latest .'
             }
     }
     
@@ -39,13 +39,13 @@ pipeline {
 			}
 			stage('Docker Push') 
         { steps {
-            sh "docker push dineshk1996/finance:latest "
+            sh "docker push alaranga4/finance:latest "
         }}
     
     stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
                 dir('my-serverfiles'){
-                sh 'sudo chmod 600 project.pem'
+                sh 'sudo chmod 600 ala.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
